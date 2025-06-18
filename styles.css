@@ -77,16 +77,16 @@ h6 {
     isolation: isolate;
 }
 
-/* 
-    To see the overall grid-layout dashboard
+/*
+    The overall grid-layout
 */
-header,
-nav,
-main {
-    border: 2px solid black;
-}
-
 .container {
+    --white: rgb(255, 255, 255);
+    --black: rgb(0, 0, 0);
+    --light-grey: rgb(226, 232, 240);
+    --dark-grey: rgb(101, 101, 101);
+    --blue: rgb(25, 146, 212);
+    --yellow: rgb(240, 180, 41);
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -94,13 +94,325 @@ main {
     grid-template-areas:
         "nav header"
         "nav main";
+
+    /*
+    To see the overall grid-layout dashboard
+    */
+    header,
+    nav,
+    main {
+        border: 2px solid black;
+    }
+
     header {
+        background-color: var(--white);
         grid-area: header;
+        padding: 6px 12px;
+        /*
+        The header grid-layout
+        */
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+        gap: 12px;
+
+        /*
+        To see the header's grid-layout
+        */
+        .top,
+        .bottom {
+            border: 2px solid red;
+        }
+
+        .top {
+            /*
+            The top header section grid-layout
+            */
+            display: grid;
+            grid-template-columns: 5fr 3fr;
+            gap: 16px;
+
+            /*
+            To see the top header section's grid-layout
+            */
+            .left,
+            .right {
+                border: 2px solid green;
+            }
+
+            .left {
+                display: grid;
+                grid-template-columns: 1fr 5fr;
+                gap: 6px;
+                .search-icon,
+                .search-bar {
+                    border: 2px solid blue;
+                }
+
+                .search-icon {
+                }
+                .search-bar {
+                    background-color: var(--light-grey);
+                }
+            }
+
+            .right {
+                display: grid;
+                grid-template-columns: 4fr 3fr 6fr;
+                gap: 6px;
+
+                .notifications,
+                .user-profile,
+                .user-name {
+                    border: 2px solid blue;
+                }
+
+                .notifications {
+                }
+                .user-profile {
+                }
+                .user-name {
+                }
+            }
+        }
+
+        .bottom {
+            /*
+            The bottom header section grid-layout
+            */
+            display: grid;
+            grid-template-columns: 5fr 4fr;
+            gap: 16px;
+
+            /*
+            To see the bottom header section's grid-layout
+            */
+            .left,
+            .right {
+                border: 2px solid green;
+            }
+
+            /*
+            The bottom left header section grid-layout
+            */
+            .left {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+                gap: 6px;
+
+                /*
+            To see the bottom left header section's grid-layout
+            */
+                .icon,
+                .text {
+                    border: 2px solid blue;
+                }
+
+                .text {
+                    display: grid;
+                    grid-template-rows: 1fr 2fr;
+                    gap: 6px;
+
+                    .top-text,
+                    .bottom-text {
+                        border: 2px solid orange;
+                    }
+                }
+            }
+
+            /*
+            The bottom right header section grid-layout
+            */
+            .right {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 6px;
+
+                /*
+            To see the bottom right header section's grid-layout
+            */
+                .button {
+                    background-color: var(--blue);
+                    color: var(--white);
+                }
+            }
+        }
     }
     nav {
+        background-color: var(--blue);
+        --nav-item-size: 32px;
         grid-area: nav;
+        padding: 6px;
+        /*
+        The nav grid-layout
+        */
+        display: grid;
+        grid-template-rows: 1fr 4fr 5fr;
+        gap: 16px;
+
+        /*
+        To see the nav's grid-layout
+        */
+        .top,
+        .middle,
+        .bottom {
+            border: 2px solid red;
+        }
+
+        .top {
+            /*
+            The nav top section grid-layout
+            */
+            display: grid;
+            grid-template-columns: 1fr 4fr;
+            gap: 6px;
+
+            /*
+            To see the nav top section's grid-layout
+            */
+            .icon,
+            .text {
+                border: 2px solid green;
+            }
+
+            .text {
+                color: var(--white);
+            }
+        }
+
+        .middle {
+            /*
+            The nav middle section grid-layout
+            */
+            display: grid;
+            grid-template-rows: repeat(6, var(--nav-item-size));
+            gap: 6px;
+
+            /*
+            To see the nav middle section's grid-layout
+            */
+            .home,
+            .user-profile,
+            .messages,
+            .history,
+            .tasks,
+            .communities {
+                border: 2px solid green;
+                display: grid;
+                grid-template-columns: 1fr 4fr;
+                gap: 6px;
+
+                .icon,
+                .text {
+                    border: 2px solid blue;
+                }
+
+                .text {
+                    color: var(--white);
+                }
+            }
+        }
+
+        .bottom {
+            /*
+            The nav bottom section grid-layout
+            */
+            display: grid;
+            grid-template-rows: repeat(auto-fill, var(--nav-item-size));
+            gap: 6px;
+
+            /*
+            To see the nav bottom section's grid-layout
+            */
+            .settings,
+            .support,
+            .privacy {
+                border: 2px solid green;
+                display: grid;
+                grid-template-columns: 1fr 4fr;
+                gap: 6px;
+
+                .icon,
+                .text {
+                    border: 2px solid blue;
+                }
+
+                .text {
+                    color: var(--white);
+                }
+            }
+        }
     }
     main {
+        background-color: var(--light-grey);
+        padding: 16px 6px;
         grid-area: main;
+        /*
+        The main content grid-layout
+        */
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 6px;
+
+        /*
+        To see the main content's grid-layout
+        */
+        .left,
+        .right {
+            border: 2px solid red;
+        }
+
+        .left {
+            display: grid;
+            grid-template-rows: 1fr 8fr;
+            gap: 6px;
+
+            .text,
+            .projects {
+                border: 2px solid green;
+            }
+
+            .projects {
+                /*
+            The projects section grid-layout
+            */
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                grid-auto-rows: 200px;
+                gap: 16px;
+                padding: 12px 16px;
+
+                /*
+            To see the projects section's grid-layout
+            */
+                .card {
+                    border: 2px solid blue;
+                }
+            }
+        }
+
+        .right {
+            /*
+            The projects section grid-layout
+            */
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 12px;
+
+            /*
+            To see the projects section's grid-layout
+            */
+            .announcements,
+            .trending {
+                border: 2px solid green;
+                display: grid;
+                grid-template-rows: 1fr 4fr;
+                gap: 6px;
+
+                .text,
+                .card {
+                    border: 2px solid blue;
+                }
+            }
+        }
     }
 }
